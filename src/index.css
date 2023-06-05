@@ -1,0 +1,79 @@
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+.artist-img {
+    width: 15rem;
+}
+
+.icon-artist,
+.icon-song {
+    font-size: 3rem;
+    text-decoration: none;
+    color: #1db954;
+}
+.icon-song {
+    font-size: 2rem;
+}
+
+.card {
+    width: 14rem;
+    display: flex;
+    min-height: 25rem;
+}
+
+.artist-container {
+    display: flex;
+    justify-content: center;
+}
+.input {
+    width: 30rem;
+}
+.form-container,
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 1rem 0;
+}
+
+.artist-card {
+    width: 18rem;
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+.fav-container,
+.tracklist-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.tracklist-wrapper,
+.fav-wrapper {
+    width: 100%;
+}
+
+.btn-container {
+    height: 4rem;
+}
+
+.artist-card,
+.form {
+    margin: 1rem 0;
+}
+
+.fav-btn,
+.back-btn {
+    position: absolute;
+    left: 0;
+}
