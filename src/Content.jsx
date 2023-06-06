@@ -28,7 +28,6 @@ const Content = ({
                     showPlayer={showPlayer}
                 />
             </Container>
-
             <Player idNumber={idNumber} closePlayer={closePlayer} isPlayerOpen={isPlayerOpen} />
         </Container>
     );

@@ -12,7 +12,7 @@ const App = () => {
     const [searchInput, setSearchInput] = useState("");
     const [accessToken, setAccessToken] = useState("");
     const [data, setData] = useState("");
-    const [tracks, setTracks] = useState([]);
+    const [tracks, setTracks] = useState("");
     const [favTracks, setFavTracks] = useState([]);
     const [idNumber, setIdNumber] = useState("");
     const [isPlayerOpen, setIsPlayerOpen] = useState(false);
