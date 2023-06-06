@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-import { BsSpotify } from "react-icons/bs";
+import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import Content from "./Content";
 import FavouritesPage from "./FavouritesPage";
-import PlayerPage from "./PlayerPage";
 
 const CLIENT_ID = "9d429f9e9b72431b91a082c3c7f221da";
 const CLIENT_SECRET = "bdab65c9f16d4e4aa78697cf922195a3";
@@ -18,6 +15,7 @@ const App = () => {
     const [tracks, setTracks] = useState([]);
     const [favTracks, setFavTracks] = useState([]);
     const [idNumber, setIdNumber] = useState("");
+    const [isPlayerOpen, setIsPlayerOpen] = useState(false);
 
     useEffect(() => {
         const authParams = {
@@ -70,7 +68,6 @@ const App = () => {
     const deleteFavTrack = (track) => {
         const newList = favTracks.filter((item) => item.id !== track.id);
         setFavTracks(newList);
-        // track.isFav = false;
     };
 
     const toggle = (track) => {
@@ -80,12 +77,18 @@ const App = () => {
             // Delete a track from favourites
             const updatedFavTracks = favTracks.filter((item) => item.id !== track.id);
             setFavTracks(updatedFavTracks);
-            // track.isFav = false;
         } else {
             // Add a track to favourites
             setFavTracks([...favTracks, track]);
-            // track.isFav = true;
         }
+    };
+
+    const showPlayer = (id) => {
+        setIdNumber(id);
+        setIsPlayerOpen(true);
+    };
+    const closePlayer = () => {
+        setIsPlayerOpen(false);
     };
 
     return (
@@ -104,6 +107,10 @@ const App = () => {
                                     deleteFavTrack={deleteFavTrack}
                                     toggle={toggle}
                                     setIdNumber={setIdNumber}
+                                    isPlayerOpen={isPlayerOpen}
+                                    showPlayer={showPlayer}
+                                    closePlayer={closePlayer}
+                                    idNumber={idNumber}
                                 />
                             </>
                         }
@@ -111,10 +118,16 @@ const App = () => {
                     <Route
                         path="/favourites"
                         element={
-                            <FavouritesPage favTracks={favTracks} deleteFavTrack={deleteFavTrack} />
+                            <FavouritesPage
+                                favTracks={favTracks}
+                                deleteFavTrack={deleteFavTrack}
+                                showPlayer={showPlayer}
+                                idNumber={idNumber}
+                                closePlayer={closePlayer}
+                                isPlayerOpen={isPlayerOpen}
+                            />
                         }
                     />
-                    <Route path="/player" element={<PlayerPage idNumber={idNumber} />} />
                 </Routes>
             </BrowserRouter>
         </Container>

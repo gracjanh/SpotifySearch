@@ -15,13 +15,13 @@ const ArtistCard = ({ data }) => {
     return (
         <Container className="artist-container">
             <Card className="artist-card">
-                <Card.Img variant="top" src={data.images[0].url} />
+                <Card.Img variant="top" src={data.images[0]?.url} />
                 <Card.Body>
                     <Card.Title>
                         {data.name}
                         <div>
                             <a
-                                href={data.external_urls.spotify}
+                                href={data.external_urls?.spotify}
                                 target="_blank"
                                 className="link-song"
                             >
@@ -31,7 +31,7 @@ const ArtistCard = ({ data }) => {
                             </a>
                         </div>
                     </Card.Title>
-                    <Card.Text>{formatNumber(data.followers.total)} followers</Card.Text>
+                    <Card.Text>{formatNumber(data.followers?.total)} followers</Card.Text>
                 </Card.Body>
             </Card>
         </Container>

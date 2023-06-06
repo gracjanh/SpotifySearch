@@ -1,8 +1,16 @@
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { BsSpotify, BsTrash3Fill } from "react-icons/bs";
+import Player from "./Player";
 
-const FavouritesPage = ({ favTracks, deleteFavTrack }) => {
+const FavouritesPage = ({
+    favTracks,
+    deleteFavTrack,
+    showPlayer,
+    idNumber,
+    closePlayer,
+    isPlayerOpen,
+}) => {
     return (
         <Container>
             <div className="btn-container">
@@ -19,7 +27,7 @@ const FavouritesPage = ({ favTracks, deleteFavTrack }) => {
                     <div className="fav-container">
                         {favTracks.map((track) => {
                             return (
-                                <Card className="text-center">
+                                <Card className="text-center" key={track.id}>
                                     <Card.Img variant="top" src={track.album.images[0].url} />
                                     <Card.Body>
                                         <Card.Title>
@@ -37,7 +45,9 @@ const FavouritesPage = ({ favTracks, deleteFavTrack }) => {
                                         <Card.Text>
                                             {track.artists.map((artist) => artist.name).join(", ")}
                                         </Card.Text>
+                                        <Button onClick={() => showPlayer(track.id)}>Play</Button>
                                     </Card.Body>
+
                                     <Button variant="primary" onClick={() => deleteFavTrack(track)}>
                                         <BsTrash3Fill />
                                     </Button>
@@ -47,6 +57,8 @@ const FavouritesPage = ({ favTracks, deleteFavTrack }) => {
                     </div>
                 </Card.Body>
             </Card>
+
+            <Player idNumber={idNumber} closePlayer={closePlayer} isPlayerOpen={isPlayerOpen} />
         </Container>
     );
 };

@@ -2,7 +2,7 @@ import { Container, Card, Row, Col, Button } from "react-bootstrap";
 import { BsSpotify, BsHeart, BsHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-const Tracklist = ({ tracks, favTracks, toggle, setIdNumber }) => {
+const Tracklist = ({ tracks, toggle, showPlayer }) => {
     return (
         <Container>
             <Card className="tracklist-wrapper">
@@ -25,15 +25,11 @@ const Tracklist = ({ tracks, favTracks, toggle, setIdNumber }) => {
                                                     <BsSpotify className="icon-song" />
                                                 </div>
                                             </a>
-                                            <Button onClick={() => setIdNumber(track.id)}>
-                                                <Link to="/player" className="link">
-                                                    Play
-                                                </Link>
-                                            </Button>
                                         </Card.Title>
                                         <Card.Text>
                                             {track.artists.map((artist) => artist.name).join(", ")}
                                         </Card.Text>
+                                        <Button onClick={() => showPlayer(track.id)}>Play</Button>
                                     </Card.Body>
 
                                     <Button variant="primary" onClick={() => toggle(track)}>

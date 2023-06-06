@@ -1,8 +1,6 @@
-/* * {
-    margin: 0;
-    padding: 0;
-} */
-
+.background-blur {
+    filter: blur(5px);
+}
 .artist-img {
     width: 15rem;
 }
@@ -76,4 +74,14 @@
 .back-btn {
     position: absolute;
     left: 0;
+}
+
+.play-btn {
+    transition: all 0.25s ease;
+}
+
+.close-player {
+    justify-content: center;
+    border: none;
+    padding: 0.5rem;
 }
