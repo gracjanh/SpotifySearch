@@ -67,7 +67,6 @@ const App = () => {
             });
     };
 
-    console.log(tracks);
     /////////////////////
     // HELPER FUNCTIONS //
     const renderHeartIcon = (track, value) => {
