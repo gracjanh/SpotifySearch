@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Container, Modal } from "react-bootstrap";
+import { useGlobalContext } from "./context";
 
 const Player = ({ idNumber, closePlayer, isPlayerOpen }) => {
     return (

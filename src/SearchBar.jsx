@@ -1,5 +1,6 @@
 import { Form, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useGlobalContext } from "./context";
 
 const SearchBar = ({ fetchData, searchInput }) => {
     return (

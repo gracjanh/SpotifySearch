@@ -1,8 +1,8 @@
 import { Container, Card, Row, Col, Button } from "react-bootstrap";
 import { BsSpotify, BsHeart, BsHeartFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { useGlobalContext } from "./context";
 
-const Tracklist = ({ tracks, toggle, showPlayer }) => {
+const Tracklist = ({ tracks, toggleFavourite, showPlayer, favBoolObj }) => {
     return (
         <Container>
             <Card className="tracklist-wrapper">
@@ -32,8 +32,15 @@ const Tracklist = ({ tracks, toggle, showPlayer }) => {
                                         <Button onClick={() => showPlayer(track.id)}>Play</Button>
                                     </Card.Body>
 
-                                    <Button variant="primary" onClick={() => toggle(track)}>
-                                        <BsHeart /> / <BsHeartFill />
+                                    <Button
+                                        variant="primary"
+                                        onClick={() => toggleFavourite(track)}
+                                    >
+                                        {favBoolObj[`${track.name}`] ? (
+                                            <BsHeartFill />
+                                        ) : (
+                                            <BsHeart />
+                                        )}
                                     </Button>
                                 </Card>
                             );

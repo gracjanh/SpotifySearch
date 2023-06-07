@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import Content from "./Content";
 import FavouritesPage from "./FavouritesPage";
+import { useGlobalContext } from "./context";
 
 const CLIENT_ID = "9d429f9e9b72431b91a082c3c7f221da";
 const CLIENT_SECRET = "bdab65c9f16d4e4aa78697cf922195a3";
@@ -14,6 +15,7 @@ const App = () => {
     const [data, setData] = useState("");
     const [tracks, setTracks] = useState("");
     const [favTracks, setFavTracks] = useState([]);
+    const [favBoolObj, setFavBoolObj] = useState({});
     const [idNumber, setIdNumber] = useState("");
     const [isPlayerOpen, setIsPlayerOpen] = useState(false);
 
@@ -65,21 +67,35 @@ const App = () => {
             });
     };
 
-    const deleteFavTrack = (track) => {
-        const newList = favTracks.filter((item) => item.id !== track.id);
-        setFavTracks(newList);
+    console.log(tracks);
+    /////////////////////
+    // HELPER FUNCTIONS //
+    const renderHeartIcon = (track, value) => {
+        const newObj = { ...favBoolObj, [`${track.name}`]: value }; // Add new property depending on track name
+        setFavBoolObj(newObj);
     };
 
-    const toggle = (track) => {
+    const updateFavTracks = (track) => {
+        const newFavTracks = favTracks.filter((item) => item.id !== track.id);
+        setFavTracks(newFavTracks);
+    };
+    /////////////////////
+
+    const deleteFavTrack = (track) => {
+        updateFavTracks(track);
+        renderHeartIcon(track, false);
+    };
+    const toggleFavourite = (track) => {
         const isOnFavList = favTracks.some((item) => item.id === track.id);
 
         if (isOnFavList) {
             // Delete a track from favourites
-            const updatedFavTracks = favTracks.filter((item) => item.id !== track.id);
-            setFavTracks(updatedFavTracks);
+            updateFavTracks(track);
+            renderHeartIcon(track, false);
         } else {
             // Add a track to favourites
             setFavTracks([...favTracks, track]);
+            renderHeartIcon(track, true);
         }
     };
 
@@ -105,12 +121,13 @@ const App = () => {
                                     tracks={tracks}
                                     favTracks={favTracks}
                                     deleteFavTrack={deleteFavTrack}
-                                    toggle={toggle}
+                                    toggleFavourite={toggleFavourite}
                                     setIdNumber={setIdNumber}
                                     isPlayerOpen={isPlayerOpen}
                                     showPlayer={showPlayer}
                                     closePlayer={closePlayer}
                                     idNumber={idNumber}
+                                    favBoolObj={favBoolObj}
                                 />
                             </>
                         }

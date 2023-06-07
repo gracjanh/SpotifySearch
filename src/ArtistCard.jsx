@@ -1,17 +1,13 @@
 import { Container, Card } from "react-bootstrap";
 import { BsSpotify } from "react-icons/bs";
+import { useGlobalContext } from "./context";
 
 const ArtistCard = ({ data }) => {
     const formatNumber = (number) => {
-        if (number >= 1000000) {
-            return (number / 1000000).toFixed(2) + "M";
-        } else if (number >= 1000) {
-            return (number / 1000).toFixed(2) + "K";
-        } else {
-            return number.toString();
-        }
+        if (number >= 1000000) return (number / 1000000).toFixed(2) + "M";
+        else if (number >= 1000) return (number / 1000).toFixed(2) + "K";
+        else return number.toString();
     };
-
     return (
         <Container className="artist-container">
             <Card className="artist-card">
