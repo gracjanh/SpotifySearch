@@ -1,37 +1,42 @@
+body {
+    background-color: #f2f2f2;
+}
+
 .artist-img {
     width: 15rem;
 }
 
 .icon-artist,
 .icon-song {
-    font-size: 3rem;
+    font-size: 2rem;
     text-decoration: none;
     color: #1db954;
 }
-.icon-song {
-    font-size: 2rem;
+.icon-artist {
+    margin-bottom: 1rem;
 }
 
 .card {
     width: 14rem;
     display: flex;
-    min-height: 25rem;
 }
 
 .artist-container {
     display: flex;
     justify-content: center;
 }
+
 .input {
     width: 30rem;
 }
 .form-container,
-.btn-container {
+.top-container {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     margin: 1rem 0;
+    height: 4rem;
 }
 
 .artist-card {
@@ -56,10 +61,8 @@
 .tracklist-wrapper,
 .fav-wrapper {
     width: 100%;
-}
-
-.btn-container {
-    height: 4rem;
+    margin: 1rem 0;
+    /* background-color: blue; */
 }
 
 .artist-card,
@@ -69,12 +72,37 @@
 
 .fav-btn,
 .back-btn {
+    width: 4rem;
+    height: 2.5rem;
     position: absolute;
     left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fav-page-icons {
+    position: absolute;
+    right: 0;
+    display: flex;
+    gap: 1rem;
 }
 
-.play-btn {
-    transition: all 0.25s ease;
+.arrow-icon,
+.fav-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.fav-icon {
+    font-size: 1.2rem;
+}
+
+.layout-icon,
+.sort-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .close-player {
@@ -88,7 +116,147 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.card-btn {
+    width: 5.7rem;
+    height: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ////////////////////////////////////// */
+
+.y {
+    width: 45%;
+    background-color: rgb(235, 235, 235);
+    display: flex;
+    border-radius: 0.3rem;
+    min-height: 6.5rem;
+}
+.z {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+
+.buttons2 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+
+    /* background-color: rgb(255, 186, 101); */
+}
+
+.aa {
+    background-color: rgb(255, 156, 156);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    /* flex-direction: column; */
+}
+
+.qq {
+    background-color: blue;
+}
+
+.ww {
+    font-size: 1rem;
+}
+.ee {
+    font-size: 0.8rem;
+}
+
+.btn1 {
+    width: 5.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+}
+
+.cont2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fav-card-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.song-card-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aasd {
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+
+.rrr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+}
+
+/* FavSongCardHorizontal styles */
+.x {
+    width: 6.5rem;
+    border-radius: 0.3rem 0 0 0.3rem;
+}
+
+.card-horizontal {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+.card-horizontal-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-left: 1rem;
+}
+.card-buttons-container,
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
 }

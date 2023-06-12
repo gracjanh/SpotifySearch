@@ -2,14 +2,16 @@ import React from "react";
 import { Button, Container, Modal } from "react-bootstrap";
 import { useGlobalContext } from "./context";
 
-const Player = ({ idNumber, closePlayer, isPlayerOpen }) => {
+const Player = () => {
+    const { isPlayerOpen, closePlayer, idNumber } = useGlobalContext();
     return (
         <Modal
             onHide={closePlayer}
             show={isPlayerOpen}
-            size="lg"
+            size="md"
             aria-labelledby="contained-modal-title-vcenter"
             centered
+            scrollable={true}
         >
             <Modal.Body>
                 <iframe
