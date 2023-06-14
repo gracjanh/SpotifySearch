@@ -1,0 +1,33 @@
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 1rem 0;
+    height: 4rem;
+}
+
+.input {
+    width: 30rem;
+}
+
+.fav-btn {
+    width: 4rem;
+    height: 2.5rem;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}

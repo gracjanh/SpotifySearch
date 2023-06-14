@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import Content from "./Content";
-import FavouritesPage from "./FavouritesPage";
+import FavouritesPage from "../pages/FavouritesPage";
 
 const App = () => {
     return (

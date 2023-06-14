@@ -1,6 +1,7 @@
 import { Container, Card } from "react-bootstrap";
 import { BsSpotify } from "react-icons/bs";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context/context";
+import "../styles/ArtistCard.css";
 
 const ArtistCard = () => {
     const { data } = useGlobalContext();
@@ -11,7 +12,7 @@ const ArtistCard = () => {
         else return number;
     };
     return (
-        <Container className="artist-container">
+        <Container className="artist-wrapper">
             <Card className="artist-card">
                 <Card.Img variant="top" src={data.images[0]?.url} />
                 <Card.Body>
@@ -19,8 +20,8 @@ const ArtistCard = () => {
                     <Card.Text>{formatNumber(data.followers?.total)} followers</Card.Text>
                 </Card.Body>
                 <div>
-                    <a href={data.external_urls?.spotify} target="_blank" className="link-song">
-                        <BsSpotify className="icon-artist" />
+                    <a href={data.external_urls?.spotify} target="_blank">
+                        <BsSpotify className="artist-icon" />
                     </a>
                 </div>
             </Card>

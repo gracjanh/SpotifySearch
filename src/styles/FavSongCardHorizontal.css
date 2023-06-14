@@ -1,0 +1,57 @@
+.card-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card-wrapper-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img {
+    width: 6.5rem;
+    border-radius: 0.3rem 0 0 0.3rem;
+}
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.card-horizontal-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-left: 1rem;
+}
+.card-btns-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spotify-icon {
+    font-size: 2rem;
+    text-decoration: none;
+    color: #1db954;
+}
+.card-btn {
+    width: 5.7rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+}

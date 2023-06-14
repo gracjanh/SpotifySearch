@@ -1,0 +1,19 @@
+.spotify-icon {
+    font-size: 2rem;
+    text-decoration: none;
+    color: #1db954;
+}
+
+.btns-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.card-btn {
+    width: 5.7rem;
+    height: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

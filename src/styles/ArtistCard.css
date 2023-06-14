@@ -1,0 +1,17 @@
+.artist-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.artist-card {
+    width: 18rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.artist-icon {
+    font-size: 2rem;
+    text-decoration: none;
+    color: #1db954;
+    margin-bottom: 1rem;
+}

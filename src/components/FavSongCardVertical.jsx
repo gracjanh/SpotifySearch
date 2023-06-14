@@ -1,6 +1,7 @@
 import { Card, Button } from "react-bootstrap";
 import { BsSpotify, BsTrash3Fill, BsFillPlayCircleFill } from "react-icons/bs";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context/context";
+import "../styles/FavSongCardVertical.css";
 
 const FavSongCardVertical = ({ track }) => {
     const { toggleFavourite, showPlayer } = useGlobalContext();
@@ -8,17 +9,15 @@ const FavSongCardVertical = ({ track }) => {
         <Card className="text-center">
             <Card.Img variant="top" src={track.album.images[0].url} />
             <Card.Body>
-                <div className="song-card-text">
-                    <Card.Title>{track.name}</Card.Title>
-                    <Card.Text>{track.artists.map((artist) => artist.name).join(", ")}</Card.Text>
-                </div>
+                <Card.Title>{track.name}</Card.Title>
+                <Card.Text>{track.artists.map((artist) => artist.name).join(", ")}</Card.Text>
             </Card.Body>
 
             <a href={track.external_urls.spotify} target="_blank">
-                <BsSpotify className="icon-song" />
+                <BsSpotify className="spotify-icon" />
             </a>
 
-            <div className="buttons">
+            <div className="btns-wrapper">
                 <Button className="card-btn" onClick={() => showPlayer(track.id)}>
                     <BsFillPlayCircleFill />
                 </Button>

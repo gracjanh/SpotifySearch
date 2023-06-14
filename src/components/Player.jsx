@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, Container, Modal } from "react-bootstrap";
-import { useGlobalContext } from "./context";
+import { Button, Modal } from "react-bootstrap";
+import { useGlobalContext } from "../context/context";
+import "../styles/Player.css";
 
 const Player = () => {
     const { isPlayerOpen, closePlayer, idNumber } = useGlobalContext();

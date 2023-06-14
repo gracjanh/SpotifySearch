@@ -1,13 +1,14 @@
 import { Form, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context/context";
 import { BsHeartFill } from "react-icons/bs";
+import "../styles/SearchBar.css";
 
 const SearchBar = () => {
     const { fetchData, searchInput } = useGlobalContext();
 
     return (
-        <Container className="form-container">
+        <Container className="search-wrapper">
             <Form onSubmit={(e) => e.preventDefault()} className="form">
                 <Form.Control
                     type="text"
@@ -19,7 +20,7 @@ const SearchBar = () => {
             </Form>
             <Button className="fav-btn">
                 <Link to="/favourites" className="link">
-                    <BsHeartFill className="fav-icon" />
+                    <BsHeartFill className="icon" />
                 </Link>
             </Button>
         </Container>

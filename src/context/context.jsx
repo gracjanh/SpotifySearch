@@ -14,8 +14,8 @@ export const ContextProvider = ({ children }) => {
     const [isGrid, setIsGrid] = useState(true);
     const [sortOrder, setSortOrder] = useState(false);
 
-    const CLIENT_ID = "9d429f9e9b72431b91a082c3c7f221da";
-    const CLIENT_SECRET = "bdab65c9f16d4e4aa78697cf922195a3";
+    const CLIENT_ID = "CLIENT ID";
+    const CLIENT_SECRET = "CLIENT SECRET";
 
     useEffect(() => {
         const authParams = {
@@ -34,6 +34,34 @@ export const ContextProvider = ({ children }) => {
             .then((result) => result.json())
             .then((data) => setAccessToken(data.access_token));
     }, [accessToken]);
+
+    useEffect(() => {
+        const storedFavTracks = localStorage.getItem("favTracks");
+        const storedFavBoolObj = localStorage.getItem("favBoolObj");
+        const storedData = localStorage.getItem("data");
+        const storedTracks = localStorage.getItem("tracks");
+        const storedLayout = localStorage.getItem("isGrid");
+        const storedOrder = localStorage.getItem("sortOrder");
+        const storedInput = localStorage.getItem("searchInput");
+
+        if (storedFavTracks) setFavTracks(JSON.parse(storedFavTracks));
+        if (storedFavBoolObj) setFavBoolObj(JSON.parse(storedFavBoolObj));
+        if (storedData) setData(JSON.parse(storedData));
+        if (storedTracks) setTracks(JSON.parse(storedTracks));
+        if (storedLayout) setIsGrid(JSON.parse(storedLayout));
+        if (storedOrder) setSortOrder(JSON.parse(storedOrder));
+        if (storedInput) setSearchInput(JSON.parse(storedInput));
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("favTracks", JSON.stringify(favTracks));
+        localStorage.setItem("favBoolObj", JSON.stringify(favBoolObj));
+        localStorage.setItem("data", JSON.stringify(data));
+        localStorage.setItem("tracks", JSON.stringify(tracks));
+        localStorage.setItem("isGrid", JSON.stringify(isGrid));
+        localStorage.setItem("sortOrder", JSON.stringify(sortOrder));
+        localStorage.setItem("searchInput", JSON.stringify(searchInput));
+    }, [favTracks, favBoolObj, data, tracks, isGrid, sortOrder, searchInput]);
 
     const fetchData = async (e) => {
         e.preventDefault();
