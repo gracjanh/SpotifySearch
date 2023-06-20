@@ -33,7 +33,7 @@ export const ContextProvider = ({ children }) => {
         fetch("https://accounts.spotify.com/api/token", authParams)
             .then((result) => result.json())
             .then((data) => setAccessToken(data.access_token));
-    }, [accessToken]);
+    }, []);
 
     useEffect(() => {
         const storedFavTracks = localStorage.getItem("favTracks");
